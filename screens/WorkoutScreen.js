@@ -92,14 +92,16 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   title: {
-    backgroundColor: "yellow",
+    backgroundColor: "darkorchid",
     alignItems: "center"
   },
   titleText: {
-    fontSize: 35
+    fontSize: 35,
+    color: "white"
   },
   subtitleText: {
-    fontSize: 20
+    fontSize: 20,
+    color: "white"
   },
   body: {
     flex: 8,
