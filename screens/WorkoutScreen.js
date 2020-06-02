@@ -77,12 +77,13 @@ const styles = StyleSheet.create({
   },
   subtitleText: {
     fontSize: 20,
-    color: "white"
+    color: "white",
+    marginBottom: 10
   },
   body: {
     flex: 8,
     alignItems: "center",
-    justifyContent: "center"
-    // backgroundColor: "blue"
+    justifyContent: "center",
+    backgroundColor: "darkorchid"
   }
 });

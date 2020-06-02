@@ -47,6 +47,36 @@ export default function BottomTabNavigator({ navigation, route }) {
           )
         }}
       />
+      <BottomTab.Screen
+        name="Workout2"
+        component={WorkoutScreen}
+        options={{
+          title: "Workout",
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} name="md-flame" />
+          )
+        }}
+      />
+      <BottomTab.Screen
+        name="Workout3"
+        component={WorkoutScreen}
+        options={{
+          title: "Workout",
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} name="md-flame" />
+          )
+        }}
+      />
+      <BottomTab.Screen
+        name="Workout4"
+        component={WorkoutScreen}
+        options={{
+          title: "Workout",
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} name="md-flame" />
+          )
+        }}
+      />
     </BottomTab.Navigator>
   );
 }

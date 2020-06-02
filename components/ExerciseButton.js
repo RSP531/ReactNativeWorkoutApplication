@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Image,
   Platform,
@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
   View,
   Button,
-  TextInput
+  TextInput,
+  Animated
 } from "react-native";
+import ExerciseDetails from "./ExerciseDetails";
 
 const ExerciseButton = props => {
   const [visible, toggle] = useState(false);
@@ -28,21 +30,7 @@ const ExerciseButton = props => {
           <Text style={styles.buttonSetsReps}>{props.setsReps}</Text>
         </View>
       </TouchableOpacity>
-      {visible ? (
-        <View style={styles.details}>
-          <View style={styles.group}>
-            <Text style={styles.text}>Weight:</Text>
-            <TextInput style={styles.input} multiline={true}></TextInput>
-          </View>
-          <View style={styles.group}>
-            <Text style={styles.text}>Notes:</Text>
-            <TextInput style={styles.input} multiline={true}></TextInput>
-          </View>
-          <TouchableOpacity style={styles.exampleButton}>
-            <Text>Example Video of Lift</Text>
-          </TouchableOpacity>
-        </View>
-      ) : null}
+      {visible ? <ExerciseDetails /> : null}
     </View>
   );
 };
@@ -74,33 +62,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     alignSelf: "center",
     textAlign: "right"
-  },
-  details: {
-    flexDirection: "column",
-    borderWidth: 1
-  },
-  group: {
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  text: {
-    fontSize: 20,
-    borderRadius: 10
-  },
-  input: {
-    backgroundColor: "gainsboro",
-    width: 225,
-    fontSize: 20,
-    height: 60,
-    borderWidth: 1,
-    paddingLeft: 10
-  },
-  exampleButton: {
-    alignSelf: "center",
-    backgroundColor: "darkorange",
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    margin: 5,
-    borderRadius: 5
   }
 });
