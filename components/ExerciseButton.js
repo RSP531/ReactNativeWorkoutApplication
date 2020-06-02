@@ -83,12 +83,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   text: {
-    backgroundColor: "cyan",
+    // backgroundColor: "cyan",
     fontSize: 20,
     borderRadius: 10
   },
   input: {
-    backgroundColor: "darkorchid",
+    // backgroundColor: "darkorchid",
     width: 225,
     fontSize: 20,
     height: 60,

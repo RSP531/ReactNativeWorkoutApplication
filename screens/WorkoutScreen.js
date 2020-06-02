@@ -48,21 +48,6 @@ const WorkoutScreen = () => {
 
 export default WorkoutScreen;
 
-const CustomButton = props => {
-  return (
-    <TouchableOpacity onPress={() => console.log("button pressed")}>
-      <View style={styles.button}>
-        {props.exercise.length > 9 ? (
-          <Text style={styles.buttonLiftSM}>{props.exercise}</Text>
-        ) : (
-          <Text style={styles.buttonLift}>{props.exercise}</Text>
-        )}
-        <Text style={styles.buttonSetsReps}>{props.setsReps}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -73,9 +58,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "turquoise",
-    width: 100,
+    width: 60,
+    padding: 10,
     alignSelf: "center",
-    borderRadius: 10
+    borderRadius: 10,
+    margin: 10
   },
   title: {
     backgroundColor: "darkorchid",
