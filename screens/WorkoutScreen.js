@@ -9,8 +9,18 @@ import {
   Button
 } from "react-native";
 import TabBarIcon from "../components/TabBarIcon";
+import ExerciseButton from "../components/ExerciseButton";
 
 import { ScrollView } from "react-native-gesture-handler";
+
+const exerciseList = [
+  { exercise: "Deadlift", setsReps: "4 SETS X 10,8,6,4" },
+  { exercise: "Pull Ups", setsReps: "4 SETS X 10 REPS" },
+  { exercise: "Single Arm Dumbbell Row", setsReps: "4 SETS X 10 REPS" },
+  { exercise: "T-Bar Row", setsReps: "4 SETS X 10 REPS" },
+  { exercise: "Barbell Face Pulls", setsReps: "4 SETS X 10 REPS" },
+  { exercise: "Bent Over Lateral Raises", setsReps: "4 SETS X 10 REPS" }
+];
 
 const WorkoutScreen = () => {
   return (
@@ -23,38 +33,14 @@ const WorkoutScreen = () => {
         <Text style={styles.subtitleText}>Back & Rear Deltoids </Text>
       </View>
       <View style={styles.body}>
-        <CustomButton
-          exercise={"Deadlift"}
-          setsReps={"4 SETS X 10,8,6,4"}
-        ></CustomButton>
-        <CustomButton
-          exercise={"Pull Ups"}
-          setsReps={"4 SETS X 10 REPS"}
-        ></CustomButton>
-        <CustomButton
-          exercise={"Single Arm Dumbbell Row"}
-          setsReps={"4 SETS X 10 REPS"}
-        ></CustomButton>
-        <CustomButton
-          exercise={"T-Bar Row"}
-          setsReps={"4 SETS X 10 REPS"}
-        ></CustomButton>
-        <CustomButton
-          exercise={"Barbell Face Pulls"}
-          setsReps={"4 SETS X 12 REPS"}
-        ></CustomButton>
-        <CustomButton
-          exercise={"Bent Over Lateral Raises"}
-          setsReps={"4 SETS X 10 REPS"}
-        ></CustomButton>
-        <CustomButton
-          exercise={"Bent Over Lateral Raises"}
-          setsReps={"4 SETS X 10 REPS"}
-        ></CustomButton>
-        <CustomButton
-          exercise={"Bent Over Lateral Raises"}
-          setsReps={"4 SETS X 10 REPS"}
-        ></CustomButton>
+        {exerciseList.map((exercise, id) => (
+          <ExerciseButton
+            number={id}
+            key={id}
+            exercise={exercise.exercise}
+            setsReps={exercise.setsReps}
+          />
+        ))}
       </View>
     </ScrollView>
   );
@@ -106,41 +92,7 @@ const styles = StyleSheet.create({
   body: {
     flex: 8,
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "blue"
-  },
-  button: {
-    width: 320,
-    backgroundColor: "darkorange",
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    borderRadius: 10,
-    margin: 5,
-    flexDirection: "row",
-    shadowColor: "pink"
-    // borderWidth: 1,
-    // shadowOffset: { height: 1, width: 1 },
-    // shadowOpacity: 0.75,
-    // shadowRadius: 5,
-    // elevation: 5,
-  },
-  buttonLift: {
-    flex: 1,
-    fontSize: 30,
-    // backgroundColor: "turquoise",
     justifyContent: "center"
-  },
-  buttonLiftSM: {
-    flex: 1,
-    fontSize: 20,
-    // backgroundColor: "turquoise",
-    justifyContent: "center"
-  },
-  buttonSetsReps: {
-    flex: 1,
-    fontSize: 20,
-    // backgroundColor: "grey",
-    alignSelf: "center",
-    textAlign: "right"
+    // backgroundColor: "blue"
   }
 });
