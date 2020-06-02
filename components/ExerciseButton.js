@@ -9,9 +9,6 @@ import {
   Button,
   TextInput
 } from "react-native";
-import TabBarIcon from "../components/TabBarIcon";
-
-import { ScrollView } from "react-native-gesture-handler";
 
 const ExerciseButton = props => {
   const [visible, toggle] = useState(false);
@@ -32,11 +29,15 @@ const ExerciseButton = props => {
         </View>
       </TouchableOpacity>
       {visible ? (
-        <View style={styles.dropdownGroup}>
-          <Text style={styles.notes}>Weight:</Text>
-          <TextInput style={styles.textInput}></TextInput>
-          <Text style={styles.notes}>Notes:</Text>
-          <TextInput style={styles.textInput}></TextInput>
+        <View style={styles.details}>
+          <View style={styles.group}>
+            <Text style={styles.text}>Weight:</Text>
+            <TextInput style={styles.input}></TextInput>
+          </View>
+          <View style={styles.group}>
+            <Text style={styles.text}>Notes:</Text>
+            <TextInput style={styles.input}></TextInput>
+          </View>
         </View>
       ) : null}
     </View>
@@ -52,44 +53,46 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
     borderRadius: 10,
-    margin: 5,
+    marginTop: 10,
     flexDirection: "row",
     shadowColor: "pink"
-    // borderWidth: 1,
-    // shadowOffset: { height: 1, width: 1 },
-    // shadowOpacity: 0.75,
-    // shadowRadius: 5,
-    // elevation: 5,
   },
   buttonLift: {
     flex: 1,
     fontSize: 30,
-    // backgroundColor: "turquoise",
     justifyContent: "center"
   },
   buttonLiftSM: {
     flex: 1,
     fontSize: 20,
-    // backgroundColor: "turquoise",
     justifyContent: "center"
   },
   buttonSetsReps: {
     flex: 1,
     fontSize: 20,
-    // backgroundColor: "grey",
     alignSelf: "center",
     textAlign: "right"
   },
-  dropdownGroup: {
-    backgroundColor: "red"
+  details: {
+    flexDirection: "column",
+    borderWidth: 1,
+    borderRadius: 10
   },
-  notes: {
-    backgroundColor: "turquoise",
-    paddingLeft: 10
+  group: {
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
-  textInput: {
-    backgroundColor: "blue",
-    alignSelf: "flex-end",
-    width: 250
+  text: {
+    backgroundColor: "cyan",
+    fontSize: 20,
+    borderRadius: 10
+  },
+  input: {
+    backgroundColor: "darkorchid",
+    width: 225,
+    fontSize: 20,
+    height: 60,
+    borderWidth: 1,
+    borderRadius: 10
   }
 });

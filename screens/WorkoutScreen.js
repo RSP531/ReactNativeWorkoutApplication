@@ -79,7 +79,10 @@ const styles = StyleSheet.create({
   },
   title: {
     backgroundColor: "darkorchid",
-    alignItems: "center"
+    alignItems: "center",
+    width: 250,
+    alignSelf: "center",
+    borderRadius: 10
   },
   titleText: {
     fontSize: 35,
