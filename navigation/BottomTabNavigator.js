@@ -5,6 +5,8 @@ import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
 import LinksScreen from "../screens/LinksScreen";
 import WorkoutScreen from "../screens/WorkoutScreen";
+import TestScreen from "../screens/TestScreen";
+import TestScreen2 from "../screens/TestScreen2";
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = "Home";
@@ -48,22 +50,22 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Workout2"
-        component={WorkoutScreen}
+        name="TestScreen"
+        component={TestScreen}
         options={{
-          title: "Workout",
+          title: "TestScreen",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} name="md-flame" />
+            <TabBarIcon focused={focused} name="md-car" />
           )
         }}
       />
       <BottomTab.Screen
-        name="Workout3"
-        component={WorkoutScreen}
+        name="TestScreen2"
+        component={TestScreen2}
         options={{
-          title: "Workout",
+          title: "TestScreen",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} name="md-flame" />
+            <TabBarIcon focused={focused} name="md-aperture" />
           )
         }}
       />

@@ -18,6 +18,7 @@ const ExerciseButton = props => {
   const showDetails = () => {
     toggle(() => !visible);
   };
+
   return (
     <View>
       <TouchableOpacity onPress={() => showDetails()}>

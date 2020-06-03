@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Image,
   Platform,
@@ -8,27 +8,42 @@ import {
   View,
   Button,
   TextInput,
-  Animated
+  Animated,
+  Easing
 } from "react-native";
 
 const FadeInView = props => {
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const [isEditing, setIsEditing] = useState(false);
+  const opacity = useRef(new Animated.Value(0)).current;
 
-  React.useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1000
+  const saveButtonOpacity = opacity.interpolate({
+    inputRange: [0, 0.8, 1],
+    outputRange: [0, 0, 1]
+  });
+
+  const saveButtonTranslationX = opacity.interpolate({
+    inputRange: [0, 1],
+    outputRange: [100, 0]
+  });
+
+  useEffect(() => {
+    Animated.timing(opacity, {
+      toValue: isEditing ? 1 : 0,
+      duration: 400,
+      useNativeDriver: true
     }).start();
-  }, []);
+  }, [isEditing]);
 
   return (
     <Animated.View
       style={{
-        ...props.style,
-        opacity: fadeAnim
+        opacity: saveButtonOpacity,
+        transform: [{ translateX: saveButtonTranslationX }]
       }}
     >
-      {props.children}
+      <TouchableOpacity onPress={() => setIsEditing(false)}>
+        <Text>Save</Text>
+      </TouchableOpacity>
     </Animated.View>
   );
 };
