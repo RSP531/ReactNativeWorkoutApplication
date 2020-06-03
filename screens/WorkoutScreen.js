@@ -51,7 +51,7 @@ export default WorkoutScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "darkorchid"
   },
   header: {
     flex: 1,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   title: {
     backgroundColor: "darkorchid",
     alignItems: "center",
-    width: 250,
+    width: 500,
     alignSelf: "center",
     borderRadius: 10
   },

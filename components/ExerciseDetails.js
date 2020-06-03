@@ -12,22 +12,27 @@ import {
 } from "react-native";
 
 const FadeInView = props => {
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useRef(new Animated.Value(1)).current;
   const slideUp = useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
-    Animated.parallel([
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 2000,
-        useNativeDriver: true
-      }),
-      Animated.timing(slideUp, {
-        toValue: 1,
-        duration: 1000,
-        useNativeDriver: true
-      })
-    ]).start();
+    Animated.timing(slideUp, {
+      toValue: 1,
+      duration: 250
+      // useNativeDriver: true
+    }).start();
+    // Animated.parallel([
+    //   Animated.timing(fadeAnim, {
+    //     toValue: 1,
+    //     duration: 250,
+    //     useNativeDriver: true
+    //   }),
+    //   Animated.timing(slideUp, {
+    //     toValue: 1,
+    //     duration: 250,
+    //     useNativeDriver: true
+    //   })
+    // ]).start();
   }, []);
 
   return (
@@ -37,9 +42,9 @@ const FadeInView = props => {
         opacity: fadeAnim,
         transform: [
           {
-            translateX: slideUp.interpolate({
+            translateY: slideUp.interpolate({
               inputRange: [0, 1],
-              outputRange: [-500, 0]
+              outputRange: [-10, 0]
             })
           }
         ]

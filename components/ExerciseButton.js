@@ -40,6 +40,11 @@ export default ExerciseButton;
 
 const styles = StyleSheet.create({
   button: {
+    elevation: 10,
+    shadowOffset: { width: 5, height: 5 },
+    shadowColor: "grey",
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
     width: 320,
     backgroundColor: "darkorange",
     paddingVertical: 10,
