@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    borderRadius: 10
+    borderRadius: 10,
+    marginLeft: 5
   },
   input: {
     backgroundColor: "gainsboro",

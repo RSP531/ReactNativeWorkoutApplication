@@ -75,7 +75,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: "Workout",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} name="md-flame" />
+            <TabBarIcon focused={focused} name="md-finger-print" />
           )
         }}
       />

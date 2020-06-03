@@ -6,6 +6,7 @@ import {
   Animated,
   TouchableOpacity
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default class TestScreen2 extends Component {
   state = {
@@ -26,31 +27,35 @@ export default class TestScreen2 extends Component {
   render() {
     let { SlideInLeft } = this.state;
     return (
-      <View style={styles.container}>
-        <Text>HI</Text>
-        <TouchableOpacity style={styles.btn} onPress={() => this.start()}>
-          <Text style={styles.textBtn}>Start</Text>
-        </TouchableOpacity>
-        <Animated.View
-          style={{
-            transform: [
-              {
-                translateY: SlideInLeft.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0, 100]
-                })
-              }
-            ],
-            height: 100,
-            width: 100,
-            borderRadius: 12,
-            backgroundColor: "#347a2a",
-            justifyContent: "center"
-          }}
-        >
-          <Text style={styles.text}>SlideDown </Text>
-        </Animated.View>
-      </View>
+      <LinearGradient
+        colors={["#448AFF", "#9E9E9E", "#FFEB3B", "#FF5722"]}
+        style={{ flex: 1 }}
+      >
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.btn} onPress={() => this.start()}>
+            <Text style={styles.textBtn}>Start</Text>
+          </TouchableOpacity>
+          <Animated.View
+            style={{
+              transform: [
+                {
+                  translateY: SlideInLeft.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0, 100]
+                  })
+                }
+              ],
+              height: 100,
+              width: 100,
+              borderRadius: 12,
+              backgroundColor: "#347a2a",
+              justifyContent: "center"
+            }}
+          >
+            <Text style={styles.text}>SlideDown </Text>
+          </Animated.View>
+        </View>
+      </LinearGradient>
     );
   }
 }
@@ -58,7 +63,7 @@ export default class TestScreen2 extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFF",
+    backgroundColor: "transparent",
     alignItems: "center"
   },
   btn: {
