@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import {
   Image,
   Platform,
@@ -8,42 +8,44 @@ import {
   View,
   Button,
   TextInput,
-  Animated,
-  Easing
+  Animated
 } from "react-native";
 
 const FadeInView = props => {
-  const [isEditing, setIsEditing] = useState(false);
-  const opacity = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideUp = useRef(new Animated.Value(0)).current;
 
-  const saveButtonOpacity = opacity.interpolate({
-    inputRange: [0, 0.8, 1],
-    outputRange: [0, 0, 1]
-  });
-
-  const saveButtonTranslationX = opacity.interpolate({
-    inputRange: [0, 1],
-    outputRange: [100, 0]
-  });
-
-  useEffect(() => {
-    Animated.timing(opacity, {
-      toValue: isEditing ? 1 : 0,
-      duration: 400,
-      useNativeDriver: true
-    }).start();
-  }, [isEditing]);
+  React.useEffect(() => {
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: true
+      }),
+      Animated.timing(slideUp, {
+        toValue: 1,
+        duration: 1000,
+        useNativeDriver: true
+      })
+    ]).start();
+  }, []);
 
   return (
     <Animated.View
       style={{
-        opacity: saveButtonOpacity,
-        transform: [{ translateX: saveButtonTranslationX }]
+        ...props.style,
+        opacity: fadeAnim,
+        transform: [
+          {
+            translateX: slideUp.interpolate({
+              inputRange: [0, 1],
+              outputRange: [-500, 0]
+            })
+          }
+        ]
       }}
     >
-      <TouchableOpacity onPress={() => setIsEditing(false)}>
-        <Text>Save</Text>
-      </TouchableOpacity>
+      {props.children}
     </Animated.View>
   );
 };
