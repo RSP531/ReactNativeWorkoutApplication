@@ -1,16 +1,5 @@
-import React, { useState, useRef } from "react";
-import {
-  Image,
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Button,
-  TextInput,
-  Animated,
-  Linking
-} from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import ExerciseDetails from "./ExerciseDetails";
 
 const ExerciseButton = props => {
