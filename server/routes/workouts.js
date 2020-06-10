@@ -7,9 +7,18 @@ const { check, validationResult } = require("express-validator");
 
 const Workout = require("./models/Workout");
 
-// @route   POST api/users
-// @desc    Register a user
+// @route   GET api/workout
+// @desc    Get all the Workouts
 // @access  Public
-router.post();
+router.get("/", (req, res) => {
+  res.send("Here is a workout");
+});
+
+// @route   GET api/workout
+// @desc    Get a specific workout based on day
+// @access  Public
+router.get("/:day", (req, res) => {
+  res.send("Here is a specific workout");
+});
 
 module.exports = router;

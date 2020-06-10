@@ -10,7 +10,7 @@ app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => res.json({ msg: "2nd Hello World" }));
 
-// app.use("/api/workouts", require("./routes/workouts"));
+app.use("/api/workouts", require("./routes/workouts"));
 
 const port = process.env.PORT || 5000;
 
