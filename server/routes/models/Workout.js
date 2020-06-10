@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 
 const WorkoutSchema = mongoose.Schema({
+  codedDay: {
+    type: String
+  },
   exercise: {
-    exercise: String
+    type: String
     // required: true
   },
   setsReps: {
@@ -13,10 +16,6 @@ const WorkoutSchema = mongoose.Schema({
   youTube: {
     type: String
     // unique: true
-  },
-  password: {
-    type: String
-    // required: true
   }
 });
 
