@@ -8,7 +8,7 @@ connectDB();
 
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.send("Hello World"));
+app.get("/", (req, res) => res.json({ msg: "2nd Hello World" }));
 
 // app.use("/api/workouts", require("./routes/workouts"));
 
