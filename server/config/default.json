@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://rob123:rob123@cluster0-gwp4w.mongodb.net/WorkoutApp?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
