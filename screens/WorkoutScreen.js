@@ -49,10 +49,10 @@ const exerciseList = [
 
 const WorkoutScreen = () => {
   useEffect(() => {
-    //Here you will get the exercise
+    //Here you will get the exercises
   });
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <LinearGradient
         colors={["#5680E9", "#84CEEB", "#C1C8E4", "#8860D0"]}
         style={{ flex: 1 }}
@@ -86,8 +86,8 @@ export default WorkoutScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#5680E9"
+    // flex: 1,
+    // paddingBottom: 100
   },
   header: {
     flex: 1,
@@ -98,7 +98,8 @@ const styles = StyleSheet.create({
     padding: 10,
     alignSelf: "center",
     borderRadius: 10,
-    margin: 10
+    margin: 10,
+    marginTop: 30
   },
   title: {
     // backgroundColor: "darkorchid",

@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
     borderRadius: 5,
-    marginTop: 10,
+    marginTop: 20,
     flexDirection: "row"
   },
   buttonLift: {

@@ -43,7 +43,8 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Workout"
         component={WorkoutScreen}
         options={{
-          title: "Workout",
+          headerShown: true,
+          // title: "Workout",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="md-flame" />
           )
@@ -64,6 +65,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         component={TestScreen2}
         options={{
           title: "TestScreen",
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="md-aperture" />
           )
@@ -93,6 +95,6 @@ function getHeaderTitle(route) {
     case "Links":
       return "Links to learn more";
     case "Workout":
-      return "Workout-rob";
+      return null;
   }
 }
