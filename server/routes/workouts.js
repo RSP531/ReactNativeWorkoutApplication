@@ -41,7 +41,7 @@ router.post("/:day", async (req, res) => {
   }
 
   workout = new Workout({
-    codedDay,
+    codedDay, //Day1Week123Order1
     exercise,
     setsReps,
     youTube
@@ -49,7 +49,7 @@ router.post("/:day", async (req, res) => {
 
   await workout.save();
 
-  res.send("User saved");
+  res.send("Workout saved");
 
   try {
   } catch (err) {
