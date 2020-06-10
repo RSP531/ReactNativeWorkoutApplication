@@ -10,6 +10,7 @@ import {
   TextInput,
   Animated
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const FadeInView = props => {
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -66,8 +67,8 @@ const ExerciseDetails = () => {
         <Text style={styles.text}>Notes:</Text>
         <TextInput style={styles.input} multiline={true}></TextInput>
       </View>
-      <TouchableOpacity style={styles.exampleButton}>
-        <Text>Example Video of Lift</Text>
+      <TouchableOpacity style={styles.exampleButton} onPress={() => {}}>
+        <Text style={styles.text}>Example Video of Lift ></Text>
       </TouchableOpacity>
     </FadeInView>
   );
@@ -78,7 +79,9 @@ export default ExerciseDetails;
 const styles = StyleSheet.create({
   details: {
     flexDirection: "column",
-    borderWidth: 1
+    borderWidth: 1,
+    borderColor: "#8860D0",
+    marginTop: 5
   },
   group: {
     flexDirection: "row",
@@ -87,22 +90,26 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     borderRadius: 10,
-    marginLeft: 5
+    marginLeft: 5,
+    color: "#8860D0"
   },
   input: {
-    backgroundColor: "gainsboro",
+    backgroundColor: "white",
     width: 225,
     fontSize: 20,
     height: 60,
     borderWidth: 1,
-    paddingLeft: 10
+    paddingLeft: 10,
+    borderColor: "#8860D0"
   },
   exampleButton: {
     alignSelf: "center",
-    backgroundColor: "darkorange",
     paddingVertical: 10,
     paddingHorizontal: 10,
     margin: 5,
-    borderRadius: 5
+    borderRadius: 5,
+    backgroundColor: "#5AB9EA",
+    borderWidth: 1,
+    borderColor: "#8860D0"
   }
 });

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Image,
   Platform,
@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import TabBarIcon from "../components/TabBarIcon";
 import ExerciseButton from "../components/ExerciseButton";
+import { LinearGradient } from "expo-linear-gradient";
 
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -23,25 +24,35 @@ const exerciseList = [
 ];
 
 const WorkoutScreen = () => {
+  useEffect(() => {
+    //Here you will get the exercise
+  });
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <TabBarIcon name="md-flame" size={50} focused="true" />
-      </View>
-      <View style={styles.title}>
-        <Text style={styles.titleText}>Day 1 </Text>
-        <Text style={styles.subtitleText}>Back & Rear Deltoids </Text>
-      </View>
-      <View style={styles.body}>
-        {exerciseList.map((exercise, id) => (
-          <ExerciseButton
-            number={id}
-            key={id}
-            exercise={exercise.exercise}
-            setsReps={exercise.setsReps}
-          />
-        ))}
-      </View>
+      <LinearGradient
+        colors={["#5680E9", "#84CEEB", "#C1C8E4", "#8860D0"]}
+        style={{ flex: 1 }}
+        start={{ x: 1, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
+        <View style={styles.header}>
+          <TabBarIcon name="md-flame" size={50} />
+        </View>
+        <View style={styles.title}>
+          <Text style={styles.titleText}>Day 1 </Text>
+          <Text style={styles.subtitleText}>Back & Rear Deltoids </Text>
+        </View>
+        <View style={styles.body}>
+          {exerciseList.map((exercise, id) => (
+            <ExerciseButton
+              number={id}
+              key={id}
+              exercise={exercise.exercise}
+              setsReps={exercise.setsReps}
+            />
+          ))}
+        </View>
+      </LinearGradient>
     </ScrollView>
   );
 };
@@ -51,13 +62,13 @@ export default WorkoutScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "darkorchid"
+    backgroundColor: "#5680E9"
   },
   header: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "turquoise",
+    backgroundColor: "#8860D0",
     width: 60,
     padding: 10,
     alignSelf: "center",
@@ -65,7 +76,7 @@ const styles = StyleSheet.create({
     margin: 10
   },
   title: {
-    backgroundColor: "darkorchid",
+    // backgroundColor: "darkorchid",
     alignItems: "center",
     width: 500,
     alignSelf: "center",
@@ -83,7 +94,7 @@ const styles = StyleSheet.create({
   body: {
     flex: 8,
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "darkorchid"
+    justifyContent: "center"
+    // backgroundColor: "darkorchid"
   }
 });

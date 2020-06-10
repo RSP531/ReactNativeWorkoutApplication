@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 10,
     width: 320,
-    backgroundColor: "darkorange",
+    backgroundColor: "#5680E9",
     paddingVertical: 10,
     paddingHorizontal: 10,
     borderRadius: 5,
@@ -56,17 +56,20 @@ const styles = StyleSheet.create({
   buttonLift: {
     flex: 1,
     fontSize: 30,
-    justifyContent: "center"
+    justifyContent: "center",
+    color: "white"
   },
   buttonLiftSM: {
     flex: 1,
     fontSize: 20,
-    justifyContent: "center"
+    justifyContent: "center",
+    color: "white"
   },
   buttonSetsReps: {
     flex: 1,
     fontSize: 20,
     alignSelf: "center",
-    textAlign: "right"
+    textAlign: "right",
+    color: "white"
   }
 });

@@ -28,7 +28,12 @@ export default class TestScreen2 extends Component {
     let { SlideInLeft } = this.state;
     return (
       <LinearGradient
-        colors={["#448AFF", "#9E9E9E", "#FFEB3B", "#FF5722"]}
+        colors={[
+          "rgb(215, 221, 20)",
+          "#b40adf",
+          "rgb(34, 67, 214)",
+          "rgb(159, 53, 190)"
+        ]}
         style={{ flex: 1 }}
       >
         <View style={styles.container}>
