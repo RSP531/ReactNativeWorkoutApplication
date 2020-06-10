@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import {
   Image,
   Platform,
@@ -10,7 +10,7 @@ import {
   TextInput,
   Animated
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { Linking } from "expo";
 
 const FadeInView = props => {
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -57,6 +57,14 @@ const FadeInView = props => {
 };
 
 const ExerciseDetails = () => {
+  const myUrl = "https://www.youtube.com/watch?v=_ZeUlqJwNmw";
+
+  const linkYoutube = useCallback(async () => {
+    const supported = await Linking.canOpenURL(myUrl);
+    // if (supported) {
+    await Linking.open(myUrl);
+    // }
+  });
   return (
     <FadeInView style={styles.details}>
       <View style={styles.group}>
@@ -67,7 +75,10 @@ const ExerciseDetails = () => {
         <Text style={styles.text}>Notes:</Text>
         <TextInput style={styles.input} multiline={true}></TextInput>
       </View>
-      <TouchableOpacity style={styles.exampleButton} onPress={() => {}}>
+      <TouchableOpacity
+        style={styles.exampleButton}
+        onPress={() => linkYoutube}
+      >
         <Text style={styles.text}>Example Video of Lift ></Text>
       </TouchableOpacity>
     </FadeInView>

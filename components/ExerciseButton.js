@@ -8,7 +8,8 @@ import {
   View,
   Button,
   TextInput,
-  Animated
+  Animated,
+  Linking
 } from "react-native";
 import ExerciseDetails from "./ExerciseDetails";
 
