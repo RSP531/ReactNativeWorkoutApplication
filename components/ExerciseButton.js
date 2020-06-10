@@ -21,7 +21,7 @@ const ExerciseButton = props => {
           <Text style={styles.buttonSetsReps}>{props.setsReps}</Text>
         </View>
       </TouchableOpacity>
-      {visible ? <ExerciseDetails /> : null}
+      {visible ? <ExerciseDetails youTubeLink={props.youTubeLink} /> : null}
     </View>
   );
 };

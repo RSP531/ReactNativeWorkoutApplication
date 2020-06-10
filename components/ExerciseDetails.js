@@ -46,7 +46,7 @@ const FadeInView = props => {
   );
 };
 
-const ExerciseDetails = () => {
+const ExerciseDetails = ({ youTubeLink }) => {
   return (
     <FadeInView style={styles.details}>
       <View style={styles.group}>
@@ -57,10 +57,7 @@ const ExerciseDetails = () => {
         <Text style={styles.text}>Notes:</Text>
         <TextInput style={styles.input} multiline={true}></TextInput>
       </View>
-      <ButtonToYoutube
-        url="https://www.youtube.com/watch?v=-4qRntuXBSc"
-        style={styles.exampleButton}
-      >
+      <ButtonToYoutube url={youTubeLink} style={styles.exampleButton}>
         Example Video of Lift >
       </ButtonToYoutube>
     </FadeInView>
