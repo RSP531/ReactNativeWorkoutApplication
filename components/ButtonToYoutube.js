@@ -8,11 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 
-const supportedURL = "https://www.youtube.com/watch?v=_ZeUlqJwNmw";
-
-const unsupportedURL = "slack://open?team=123456";
-
-const OpenURLButton = ({ url, children }) => {
+const ButtonToYoutube = ({ url, children }) => {
   // Use Callback is memoized to prevent unnecessary re-renders if url changes
   const buttonClick = useCallback(async () => {
     const supported = await Linking.canOpenURL(url);
@@ -26,17 +22,8 @@ const OpenURLButton = ({ url, children }) => {
 
   return (
     <TouchableOpacity onPress={buttonClick} style={styles.button}>
-      <Text>{children}</Text>
+      <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
-  );
-};
-
-const TestScreen = () => {
-  return (
-    <View style={styles.container}>
-      <OpenURLButton url={supportedURL}>Open Supported URL</OpenURLButton>
-      <OpenURLButton url={unsupportedURL}>Open Unsupported URL</OpenURLButton>
-    </View>
   );
 };
 
@@ -47,12 +34,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "yellow"
   },
+  text: {
+    fontSize: 20,
+    borderRadius: 10,
+    marginLeft: 5,
+    color: "#8860D0"
+  },
   button: {
-    color: "red",
+    alignSelf: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    margin: 5,
+    borderRadius: 5,
+    backgroundColor: "#5AB9EA",
     borderWidth: 1,
-    padding: 10,
-    margin: 5
+    borderColor: "#8860D0"
   }
 });
-
-export default TestScreen;
+export default ButtonToYoutube;

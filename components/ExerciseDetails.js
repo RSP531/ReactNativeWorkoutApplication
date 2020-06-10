@@ -1,16 +1,6 @@
-import React, { useState, useRef, useCallback } from "react";
-import {
-  Image,
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Button,
-  TextInput,
-  Animated
-} from "react-native";
-import { Linking } from "expo";
+import React, { useRef } from "react";
+import { StyleSheet, Text, View, TextInput, Animated } from "react-native";
+import ButtonToYoutube from "./ButtonToYoutube";
 
 const FadeInView = props => {
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -57,14 +47,6 @@ const FadeInView = props => {
 };
 
 const ExerciseDetails = () => {
-  const myUrl = "https://www.youtube.com/watch?v=_ZeUlqJwNmw";
-
-  const linkYoutube = useCallback(async () => {
-    const supported = await Linking.canOpenURL(myUrl);
-    // if (supported) {
-    await Linking.open(myUrl);
-    // }
-  });
   return (
     <FadeInView style={styles.details}>
       <View style={styles.group}>
@@ -75,12 +57,12 @@ const ExerciseDetails = () => {
         <Text style={styles.text}>Notes:</Text>
         <TextInput style={styles.input} multiline={true}></TextInput>
       </View>
-      <TouchableOpacity
+      <ButtonToYoutube
+        url="https://www.youtube.com/watch?v=-4qRntuXBSc"
         style={styles.exampleButton}
-        onPress={() => linkYoutube}
       >
-        <Text style={styles.text}>Example Video of Lift ></Text>
-      </TouchableOpacity>
+        Example Video of Lift >
+      </ButtonToYoutube>
     </FadeInView>
   );
 };
