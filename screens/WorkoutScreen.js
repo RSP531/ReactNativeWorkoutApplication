@@ -13,6 +13,7 @@ import ExerciseButton from "../components/ExerciseButton";
 import { LinearGradient } from "expo-linear-gradient";
 
 import { ScrollView } from "react-native-gesture-handler";
+import axios from "axios";
 
 const exerciseList = [
   {
@@ -50,7 +51,17 @@ const exerciseList = [
 const WorkoutScreen = () => {
   useEffect(() => {
     //Here you will get the exercises
+    getWorkouts();
   });
+
+  const getWorkouts = async () => {
+    try {
+      const res = await axios.get("/api/workouts");
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <ScrollView>
       <LinearGradient

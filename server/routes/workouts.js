@@ -1,22 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const config = require("config");
-const { check, validationResult } = require("express-validator");
 
 const Workout = require("./models/Workout");
 
 // @route   GET api/workout
-// @desc    Get a specific workout based on day
+// @desc    Get a specific workout based on day and send back Name, YouTube, & Sets/Reps
 // @access  Public
 router.get("/day/:day/week/:week", async (req, res) => {
-  //res.send("Here is a specific workout");
-  let workout = await Workout.find({
-    weekString: req.params.week,
-    day: req.params.day
-  });
-
+  let workout = await Workout.find(
+    {
+      weekString: req.params.week,
+      day: req.params.day
+    },
+    { setsReps: 1, youTube: 1, exerciseName: 1 }
+  );
   res.send(workout);
 });
 
