@@ -4,7 +4,7 @@ const WorkoutSchema = mongoose.Schema({
   codedDay: {
     type: String
   },
-  exercise: {
+  exerciseName: {
     type: String
     // required: true
   },
@@ -14,8 +14,24 @@ const WorkoutSchema = mongoose.Schema({
     default: "4x10"
   },
   youTube: {
-    type: String
+    type: [String]
     // unique: true
+  },
+  day: {
+    type: Number
+  },
+  weekArray: [Number],
+  weekString: String,
+  program: {
+    type: String,
+    default: "12 Week"
+  },
+  superSet: {
+    type: Boolean,
+    default: false
+  },
+  superSetNumber: {
+    type: String
   }
 });
 

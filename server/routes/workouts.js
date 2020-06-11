@@ -8,32 +8,59 @@ const { check, validationResult } = require("express-validator");
 const Workout = require("./models/Workout");
 
 // @route   GET api/workout
-// @desc    Get all the Workouts
-// @access  Public
-router.get("/", (req, res) => {
-  res.send("Here is a workout");
-  try {
-    // let workout = await Workout.find();
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server Error");
-  }
-});
-
-// @route   GET api/workout
 // @desc    Get a specific workout based on day
 // @access  Public
-router.get("/:day", (req, res) => {
-  res.send("Here is a specific workout");
+router.get("/day/:day/week/:week", async (req, res) => {
+  //res.send("Here is a specific workout");
+  let workout = await Workout.find({
+    weekString: req.params.week,
+    day: req.params.day
+  });
+
+  res.send(workout);
 });
 
-// @route   POST api/workout
+// @route   PUT api/workout/"Dumbbell upright rows"
+// @desc    Get a specific workout and edit it
+// @access  Public
+router.put("/modifySetsReps", async (req, res) => {
+  const { exerciseName, setsReps } = req.body;
+  let response = await Workout.update({ exerciseName }, { setsReps });
+
+  if (!response) {
+    return res.status(400).json({ msg: "Workout does not exist" });
+  }
+
+  res.send(response);
+});
+
+// @route   DELETE api/workout
+// @desc    Get a specific workout and edit it
+// @access  Public
+router.delete("/deleteByName", async (req, res) => {
+  const { exerciseName, day } = req.body;
+  let response = await Workout.remove({ exerciseName, day }, { justOne: true });
+
+  res.send(response);
+});
+
+// @route   POST api/workout/addWorkout
 // @desc    Post a workout for a specific day
 // @access  Public
-router.post("/:day", async (req, res) => {
-  const { codedDay, exercise, setsReps, youTube } = req.body;
+router.post("/addWorkout", async (req, res) => {
+  const {
+    codedDay,
+    exerciseName,
+    setsReps,
+    youTube,
+    day,
+    weekArray,
+    weekString,
+    superSet,
+    superSetNumber
+  } = req.body;
 
-  let workout = await Workout.findOne({ codedDay });
+  let workout = await Workout.findOne({ exerciseName, day });
   if (workout) {
     return res
       .status(400)
@@ -42,9 +69,14 @@ router.post("/:day", async (req, res) => {
 
   workout = new Workout({
     codedDay, //Day1Week123Order1
-    exercise,
+    exerciseName,
     setsReps,
-    youTube
+    youTube,
+    day,
+    weekArray,
+    weekString,
+    superSet,
+    superSetNumber
   });
 
   await workout.save();
@@ -59,36 +91,3 @@ router.post("/:day", async (req, res) => {
 });
 
 module.exports = router;
-
-const exerciseList = [
-  {
-    exercise: "Deadlift",
-    setsReps: "4 SETS X 10,8,6,4",
-    youTube: "https://www.youtube.com/watch?v=-4qRntuXBSc&t=13s"
-  },
-  {
-    exercise: "Pull Ups",
-    setsReps: "4 SETS X 10 REPS",
-    youTube: "https://www.youtube.com/watch?v=vw5Xmu5CIew"
-  },
-  {
-    exercise: "Single Arm Dumbbell Row",
-    setsReps: "4 SETS X 10 REPS",
-    youTube: "https://www.youtube.com/watch?v=CCiXFyJqDCM"
-  },
-  {
-    exercise: "T-Bar Row",
-    setsReps: "4 SETS X 10 REPS",
-    youTube: "https://www.youtube.com/watch?v=rvbjGSQ2tVE"
-  },
-  {
-    exercise: "Barbell Face Pulls",
-    setsReps: "4 SETS X 10 REPS",
-    youTube: "https://www.youtube.com/watch?v=wqdXBiu6OUU"
-  },
-  {
-    exercise: "Bent Over Lateral Raises",
-    setsReps: "4 SETS X 10 REPS",
-    youTube: "https://www.youtube.com/watch?v=b_LEX4n9lOs"
-  }
-];
