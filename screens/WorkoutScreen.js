@@ -11,7 +11,6 @@ import {
 import TabBarIcon from "../components/TabBarIcon";
 import ExerciseButton from "../components/ExerciseButton";
 import { LinearGradient } from "expo-linear-gradient";
-
 import { ScrollView } from "react-native-gesture-handler";
 import axios from "axios";
 
@@ -56,10 +55,10 @@ const WorkoutScreen = () => {
 
   const getWorkouts = async () => {
     try {
-      const res = await axios.get("/api/workouts");
+      const res = await axios.get("/api/workouts/day/1/week/123");
       console.log(res);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   return (
