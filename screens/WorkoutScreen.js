@@ -55,10 +55,13 @@ const WorkoutScreen = () => {
 
   const getWorkouts = async () => {
     try {
-      const res = await axios.get("/api/workouts/day/1/week/123");
-      console.log(res);
+      const res = await axios.get(
+        "https://10.0.2.2:5000/api/workouts/day/2/week/123"
+      );
+      console.log(res.data);
+      console.log("hi");
     } catch (error) {
-      console.error(error);
+      console.error("Robs error:", error);
     }
   };
   return (
@@ -95,10 +98,7 @@ const WorkoutScreen = () => {
 export default WorkoutScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // paddingBottom: 100
-  },
+  container: {},
   header: {
     flex: 1,
     alignItems: "center",
@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   title: {
-    // backgroundColor: "darkorchid",
     alignItems: "center",
     width: 500,
     alignSelf: "center",
@@ -130,7 +129,7 @@ const styles = StyleSheet.create({
   body: {
     flex: 8,
     alignItems: "center",
-    justifyContent: "center"
-    // backgroundColor: "darkorchid"
+    justifyContent: "center",
+    marginBottom: 50
   }
 });
