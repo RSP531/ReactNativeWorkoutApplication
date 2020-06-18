@@ -55,9 +55,7 @@ const WorkoutScreen = () => {
 
   const getWorkouts = async () => {
     try {
-      const res = await axios.get(
-        "https://10.0.2.2:5000/api/workouts/day/2/week/123"
-      );
+      const res = await axios.get("https://dog.ceo/api/breeds/image/random");
       console.log(res.data);
       console.log("hi");
     } catch (error) {
