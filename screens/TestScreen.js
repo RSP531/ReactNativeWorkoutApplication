@@ -34,8 +34,8 @@ const OpenURLButton = ({ url, children }) => {
 const TestScreen = () => {
   return (
     <View style={styles.container}>
-      <OpenURLButton url={supportedURL}>Open Supported URL</OpenURLButton>
-      <OpenURLButton url={unsupportedURL}>Open Unsupported URL</OpenURLButton>
+      <OpenURLButton url={supportedURL}>OPEN Supported URL</OpenURLButton>
+      <OpenURLButton url={unsupportedURL}>OPEN Unsupported URL</OpenURLButton>
     </View>
   );
 };
