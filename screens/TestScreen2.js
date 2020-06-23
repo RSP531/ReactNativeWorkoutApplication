@@ -38,7 +38,7 @@ export default class TestScreen2 extends Component {
       >
         <View style={styles.container}>
           <TouchableOpacity style={styles.btn} onPress={() => this.start()}>
-            <Text style={styles.textBtn}>Start</Text>
+            <Text style={styles.textBtn}>Start Movement</Text>
           </TouchableOpacity>
           <Animated.View
             style={{
