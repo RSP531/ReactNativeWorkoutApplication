@@ -53,14 +53,18 @@ const WorkoutScreen = () => {
     getWorkouts();
   });
 
-  const getWorkouts = async () => {
-    try {
-      const res = await axios.get("https://dog.ceo/api/breeds/image/random");
-      console.log(res.data);
-      console.log("hi");
-    } catch (error) {
-      console.error("Robs error:", error);
-    }
+  const getWorkouts = () => {
+    axios
+      .get("http://192.168.1.65:5000/exercises")
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+    // try {
+    //   const res = await axios.get("http://localhost:5000/");
+    //   console.log(res.data);
+    //   console.log("hi");
+    // } catch (error) {
+    //   console.error("Robs error:", error);
+    // }
   };
   return (
     <ScrollView>
